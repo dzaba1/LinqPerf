@@ -9,7 +9,7 @@ namespace LinqPerf
         [STAThread]
         static void Main(string[] args)
         {
-            var samples = Add.AddTest();
+            var samples = Contains.ContainsTest();
             Show.Samples(samples);
         }
     }

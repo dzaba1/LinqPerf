@@ -20,6 +20,8 @@ namespace LinqPerf.Lib.Wrappers
 
         public string Name { get; } = "Array";
 
+        public string BinaryTestName { get; } = "ArrayBinarySearch";
+
         public void AddOne(int value)
         {
             Array.Resize(ref array, array.Length + 1);

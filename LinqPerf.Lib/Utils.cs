@@ -37,10 +37,9 @@ namespace LinqPerf.Lib
         public static Samples TestTemplate<T>(IEnumerable<T> tests, int initCount, int iterations, bool addingValues, Action<T, int> testAction)
             where T : ITest
         {
-            var testsCast = tests.Cast<ITest>();
-            testsCast.Warmup();
+            tests.Cast<ITest>().Warmup();
 
-            var samples = new Samples(iterations, initCount, testsCast);
+            var samples = new Samples(iterations, initCount, tests.Select(t => t.Name));
             samples.AddingValues = addingValues;
 
             for (int i = 0; i < iterations; i++)
@@ -48,7 +47,7 @@ namespace LinqPerf.Lib
                 foreach (var test in tests)
                 {
                     var value = Measure(() => testAction(test, i), $"{test.Name} ({i})");
-                    samples.AddValue(i, test, value);
+                    samples.AddValue(i, test.Name, value);
                 }
             }
 

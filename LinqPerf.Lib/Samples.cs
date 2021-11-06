@@ -9,12 +9,12 @@ namespace LinqPerf.Lib
         private readonly List<TimeSpan[]> values;
         private readonly int initCount;
 
-        public Samples(int iterations, int initCount, IEnumerable<ITest> tests)
+        public Samples(int iterations, int initCount, IEnumerable<string> columns)
         {
             var current = 0;
-            foreach (var test in tests)
+            foreach (var column in columns)
             {
-                columns.Add(test.Name, current);
+                this.columns.Add(column, current);
                 current++;
             }
 
@@ -24,9 +24,9 @@ namespace LinqPerf.Lib
 
         public bool AddingValues { get; set; }
 
-        public void AddValue(int iteration, ITest test, TimeSpan value)
+        public void AddValue(int iteration, string column, TimeSpan value)
         {
-            var columnIndex = columns[test.Name];
+            var columnIndex = columns[column];
             
             while (iteration >= values.Count)
             {

@@ -18,6 +18,8 @@ namespace LinqPerf.Lib.Wrappers
 
         public string Name { get; } = "List";
 
+        public string BinaryTestName { get; } = "ListBinarySearch";
+
         public void AddAtPosition(int value, int index)
         {
             list.Insert(index, value);
