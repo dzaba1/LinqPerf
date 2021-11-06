@@ -11,6 +11,11 @@ namespace LinqPerf.Wrappers
             set = new HashSet<int>();
         }
 
+        public HashSetWrapper(IEnumerable<int> init)
+        {
+            set = new HashSet<int>(init);
+        }
+
         public string Name { get; } = "HashSet";
 
         public void AddOne(int value)

@@ -4,7 +4,17 @@ namespace LinqPerf.Wrappers
 {
     internal sealed class LinkedListWrapper : IAddTest, IAddInTheMiddleTest, IContainsTest
     {
-        private readonly LinkedList<int> list = new LinkedList<int>();
+        private readonly LinkedList<int> list;
+
+        public LinkedListWrapper()
+        {
+            list = new LinkedList<int>();
+        }
+
+        public LinkedListWrapper(IEnumerable<int> init)
+        {
+            list = new LinkedList<int>(init);
+        }
 
         public string Name { get; } = "LinkedList";
 

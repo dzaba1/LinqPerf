@@ -11,6 +11,11 @@ namespace LinqPerf.Wrappers
             list = new List<int>();
         }
 
+        public ListWrapper(IEnumerable<int> init)
+        {
+            list = new List<int>(init);
+        }
+
         public string Name { get; } = "List";
 
         public void AddAtPosition(int value, int index)

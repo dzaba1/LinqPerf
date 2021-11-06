@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LinqPerf.Wrappers
 {
@@ -9,6 +11,11 @@ namespace LinqPerf.Wrappers
         public ArrayWrapper()
         {
             array = new int[0];
+        }
+
+        public ArrayWrapper(IEnumerable<int> init)
+        {
+            array = init.ToArray();
         }
 
         public string Name { get; } = "Array";
