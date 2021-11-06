@@ -1,4 +1,4 @@
-﻿using LinqPerf.CollectionTests;
+﻿using LinqPerf.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace LinqPerf
     {
         static void Main(string[] args)
         {
-            AddInTheMiddleTest();
+            AddTest();
         }
 
         private static Samples TestPattern<T>(IEnumerable<T> tests, int iterations, Action<T, int> testAction)
@@ -36,9 +36,10 @@ namespace LinqPerf
         {
             var tests = new IAddTest[]
             {
-                new ListTest(0),
-                new ArrayTest(0),
-                new LinkedListTest()
+                new ListWrapper(),
+                new ArrayWrapper(),
+                new LinkedListWrapper(),
+                new HashSetWrapper()
             };
 
             TestPattern(tests, 100000, (t, i) => t.AddOne(i));
@@ -48,8 +49,8 @@ namespace LinqPerf
         {
             var tests = new IAddInTheMiddleTest[]
             {
-                new ListTest(0),
-                new LinkedListTest()
+                new ListWrapper(),
+                new LinkedListWrapper()
             };
 
             TestPattern(tests, 100000, (t, i) => t.AddFirst(i));
@@ -59,8 +60,8 @@ namespace LinqPerf
         {
             var tests = new IAddInTheMiddleTest[]
             {
-                new ListTest(0),
-                new LinkedListTest()
+                new ListWrapper(),
+                new LinkedListWrapper()
             };
 
             TestPattern(tests, 60000, (t, i) => t.AddAtPosition(i, i / 2));

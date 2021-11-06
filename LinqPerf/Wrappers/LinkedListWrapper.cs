@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace LinqPerf.CollectionTests
+namespace LinqPerf.Wrappers
 {
-    internal sealed class LinkedListTest : IAddTest, IAddInTheMiddleTest
+    internal sealed class LinkedListWrapper : IAddTest, IAddInTheMiddleTest
     {
         private readonly LinkedList<int> list = new LinkedList<int>();
 

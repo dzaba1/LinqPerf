@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace LinqPerf.CollectionTests
+namespace LinqPerf.Wrappers
 {
-    internal sealed class ArrayTest : IAddTest
+    internal sealed class ArrayWrapper : IAddTest
     {
         private int[] array;
 
-        public ArrayTest(int initCount)
+        public ArrayWrapper()
         {
-            array = new int[initCount];
+            array = new int[0];
         }
 
         public string Name { get; } = "Array";

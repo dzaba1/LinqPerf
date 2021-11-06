@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace LinqPerf.CollectionTests
+namespace LinqPerf.Wrappers
 {
-    internal sealed class ListTest : IAddTest, IAddInTheMiddleTest
+    internal sealed class ListWrapper : IAddTest, IAddInTheMiddleTest
     {
         private readonly List<int> list;
 
-        public ListTest(int initCount)
+        public ListWrapper()
         {
-            list = new List<int>(initCount);
+            list = new List<int>();
         }
 
         public string Name { get; } = "List";
