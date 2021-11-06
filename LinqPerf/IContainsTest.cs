@@ -1,6 +1,6 @@
 ﻿namespace LinqPerf
 {
-    public interface IContainsTest
+    public interface IContainsTest : ITest
     {
         bool Contains(int value);
     }
