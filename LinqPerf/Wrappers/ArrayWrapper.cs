@@ -36,6 +36,7 @@ namespace LinqPerf.Wrappers
             var tempArray = new int[3];
             Array.Resize(ref tempArray, 4);
             tempArray[tempArray.Length - 1] = 3;
+            Array.IndexOf(tempArray, 2);
         }
     }
 }

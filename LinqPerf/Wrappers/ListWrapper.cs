@@ -43,6 +43,7 @@ namespace LinqPerf.Wrappers
             var tempList = new List<int>(3);
             tempList.Add(4);
             tempList.Insert(0, 2);
+            tempList.Contains(4);
         }
     }
 }

@@ -32,6 +32,7 @@ namespace LinqPerf.Wrappers
         {
             var tempSet = new HashSet<int>();
             tempSet.Add(2);
+            tempSet.Contains(2);
         }
     }
 }

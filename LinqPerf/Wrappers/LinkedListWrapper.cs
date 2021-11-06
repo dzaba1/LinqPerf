@@ -66,6 +66,7 @@ namespace LinqPerf.Wrappers
             tempList.AddLast(1);
             tempList.AddFirst(2);
             tempList.AddAfter(tempList.First, 3);
+            tempList.Find(2);
         }
     }
 }
