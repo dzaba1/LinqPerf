@@ -31,10 +31,17 @@ namespace LinqPerf
         public static Samples TestTemplate<T>(IEnumerable<T> tests, int initCount, int iterations, Action<T, int> testAction)
             where T : ITest
         {
+            return TestTemplate(tests, initCount, iterations, false, testAction);
+        }
+
+        public static Samples TestTemplate<T>(IEnumerable<T> tests, int initCount, int iterations, bool addingValues, Action<T, int> testAction)
+            where T : ITest
+        {
             var testsCast = tests.Cast<ITest>();
             testsCast.Warmup();
 
             var samples = new Samples(iterations, initCount, testsCast);
+            samples.AddingValues = addingValues;
 
             for (int i = 0; i < iterations; i++)
             {

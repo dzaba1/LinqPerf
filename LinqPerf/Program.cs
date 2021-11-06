@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Add.AddTest();
+            Contains.ContainsAllValues();
         }
     }
 }

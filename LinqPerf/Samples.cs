@@ -22,6 +22,8 @@ namespace LinqPerf
             this.initCount = initCount;
         }
 
+        public bool AddingValues { get; set; }
+
         public void AddValue(int iteration, ITest test, TimeSpan value)
         {
             var columnIndex = columns[test.Name];
@@ -41,7 +43,12 @@ namespace LinqPerf
             for (int i = 0; i < values.Count; i++)
             {
                 var value = values[i];
-                var row = new SampleRow(i, initCount + i);
+                var count = initCount;
+                if (AddingValues)
+                {
+                    count = initCount + i;
+                }
+                var row = new SampleRow(i, count);
 
                 foreach (var columnPair in columns)
                 {
@@ -51,5 +58,7 @@ namespace LinqPerf
                 yield return row;
             }
         }
+
+
     }
 }
