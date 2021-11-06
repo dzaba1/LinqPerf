@@ -7,8 +7,9 @@ namespace LinqPerf
     {
         private readonly Dictionary<string, int> columns = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         private readonly List<TimeSpan[]> values;
+        private readonly int initCount;
 
-        public Samples(int initCount, IEnumerable<ITest> tests)
+        public Samples(int iterations, int initCount, IEnumerable<ITest> tests)
         {
             var current = 0;
             foreach (var test in tests)
@@ -17,7 +18,8 @@ namespace LinqPerf
                 current++;
             }
 
-            values = new List<TimeSpan[]>(initCount);
+            values = new List<TimeSpan[]>(iterations);
+            this.initCount = initCount;
         }
 
         public void AddValue(int iteration, ITest test, TimeSpan value)
@@ -32,6 +34,22 @@ namespace LinqPerf
 
             var row = values[iteration];
             row[columnIndex] = value;
+        }
+
+        public IEnumerable<SampleRow> EnumerateRows()
+        {
+            for (int i = 0; i < values.Count; i++)
+            {
+                var value = values[i];
+                var row = new SampleRow(i, initCount + i);
+
+                foreach (var columnPair in columns)
+                {
+                    row[columnPair.Key] = value[columnPair.Value];
+                }
+
+                yield return row;
+            }
         }
     }
 }

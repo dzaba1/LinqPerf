@@ -28,19 +28,19 @@ namespace LinqPerf
             }
         }
 
-        public static Samples TestTemplate<T>(IEnumerable<T> tests, int iterations, Action<T, int> testAction)
+        public static Samples TestTemplate<T>(IEnumerable<T> tests, int initCount, int iterations, Action<T, int> testAction)
             where T : ITest
         {
             var testsCast = tests.Cast<ITest>();
             testsCast.Warmup();
 
-            var samples = new Samples(iterations, testsCast);
+            var samples = new Samples(iterations, initCount, testsCast);
 
             for (int i = 0; i < iterations; i++)
             {
                 foreach (var test in tests)
                 {
-                    var value = Utils.Measure(() => testAction(test, i), $"{test.Name} ({i})");
+                    var value = Measure(() => testAction(test, i), $"{test.Name} ({i})");
                     samples.AddValue(i, test, value);
                 }
             }

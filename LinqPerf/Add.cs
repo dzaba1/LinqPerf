@@ -14,7 +14,7 @@ namespace LinqPerf
                 new HashSetWrapper()
             };
 
-            Utils.TestTemplate(tests, 100000, (t, i) => t.AddOne(i));
+            Utils.TestTemplate(tests, 0, 100000, (t, i) => t.AddOne(i));
         }
 
         public static void AddFirstTest()
@@ -25,7 +25,7 @@ namespace LinqPerf
                 new LinkedListWrapper()
             };
 
-            Utils.TestTemplate(tests, 100000, (t, i) => t.AddFirst(i));
+            Utils.TestTemplate(tests, 0, 100000, (t, i) => t.AddFirst(i));
         }
 
         public static void AddInTheMiddleTest()
@@ -36,7 +36,7 @@ namespace LinqPerf
                 new LinkedListWrapper()
             };
 
-            Utils.TestTemplate(tests, 60000, (t, i) => t.AddAtPosition(i, i / 2));
+            Utils.TestTemplate(tests, 0, 60000, (t, i) => t.AddAtPosition(i, i / 2));
         }
     }
 }
