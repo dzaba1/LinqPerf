@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace LinqPerf.Wrappers
 {
-    internal sealed class ArrayWrapper : IAddTest, IContainsTest
+    internal sealed class ArrayWrapper : IAddTest, IContainsTest, IBinarySearchTest
     {
         private int[] array;
 
@@ -26,6 +26,11 @@ namespace LinqPerf.Wrappers
             array[array.Length - 1] = value;
         }
 
+        public bool BinaryContains(int value)
+        {
+            return Array.BinarySearch(array, value) >= 0;
+        }
+
         public bool Contains(int value)
         {
             return Array.IndexOf(array, value) >= 0;
@@ -37,6 +42,7 @@ namespace LinqPerf.Wrappers
             Array.Resize(ref tempArray, 4);
             tempArray[tempArray.Length - 1] = 3;
             Array.IndexOf(tempArray, 2);
+            Array.BinarySearch(tempArray, 2);
         }
     }
 }

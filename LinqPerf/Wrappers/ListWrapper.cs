@@ -2,7 +2,7 @@
 
 namespace LinqPerf.Wrappers
 {
-    internal sealed class ListWrapper : IAddTest, IAddInTheMiddleTest, IContainsTest
+    internal sealed class ListWrapper : IAddTest, IAddInTheMiddleTest, IContainsTest, IBinarySearchTest
     {
         private readonly List<int> list;
 
@@ -33,6 +33,11 @@ namespace LinqPerf.Wrappers
             list.Add(value);
         }
 
+        public bool BinaryContains(int value)
+        {
+            return list.BinarySearch(value) >= 0;
+        }
+
         public bool Contains(int value)
         {
             return list.Contains(value);
@@ -44,6 +49,7 @@ namespace LinqPerf.Wrappers
             tempList.Add(4);
             tempList.Insert(0, 2);
             tempList.Contains(4);
+            tempList.BinarySearch(2);
         }
     }
 }
