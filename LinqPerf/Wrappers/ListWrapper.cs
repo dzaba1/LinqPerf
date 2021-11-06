@@ -2,7 +2,7 @@
 
 namespace LinqPerf.Wrappers
 {
-    internal sealed class ListWrapper : IAddTest, IAddInTheMiddleTest
+    internal sealed class ListWrapper : IAddTest, IAddInTheMiddleTest, IContainsTest
     {
         private readonly List<int> list;
 
@@ -26,6 +26,11 @@ namespace LinqPerf.Wrappers
         public void AddOne(int value)
         {
             list.Add(value);
+        }
+
+        public bool Contains(int value)
+        {
+            return list.Contains(value);
         }
 
         public void Warmup()

@@ -2,13 +2,13 @@
 
 namespace LinqPerf.Wrappers
 {
-    internal sealed class LinkedListWrapper : IAddTest, IAddInTheMiddleTest
+    internal sealed class LinkedListWrapper : IAddTest, IAddInTheMiddleTest, IContainsTest
     {
         private readonly LinkedList<int> list = new LinkedList<int>();
 
         public string Name { get; } = "LinkedList";
 
-        public void AddAtPosition(int value, int index)
+        private LinkedListNode<int> FindNodeByIndex(int index)
         {
             var currentIndex = 0;
             var currentNode = list.First;
@@ -18,13 +18,20 @@ namespace LinqPerf.Wrappers
                 currentIndex++;
             }
 
-            if (currentNode == null)
+            return currentNode;
+        }
+
+        public void AddAtPosition(int value, int index)
+        {
+            var node = FindNodeByIndex(index);
+
+            if (node == null)
             {
                 list.AddFirst(value);
             }
             else
             {
-                list.AddBefore(currentNode, value);
+                list.AddBefore(node, value);
             }
         }
 
@@ -36,6 +43,11 @@ namespace LinqPerf.Wrappers
         public void AddOne(int value)
         {
             list.AddLast(value);
+        }
+
+        public bool Contains(int value)
+        {
+            return list.Find(value) != null;
         }
 
         public void Warmup()

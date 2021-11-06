@@ -2,7 +2,7 @@
 
 namespace LinqPerf.Wrappers
 {
-    internal sealed class ArrayWrapper : IAddTest
+    internal sealed class ArrayWrapper : IAddTest, IContainsTest
     {
         private int[] array;
 
@@ -17,6 +17,11 @@ namespace LinqPerf.Wrappers
         {
             Array.Resize(ref array, array.Length + 1);
             array[array.Length - 1] = value;
+        }
+
+        public bool Contains(int value)
+        {
+            return Array.IndexOf(array, value) >= 0;
         }
 
         public void Warmup()
