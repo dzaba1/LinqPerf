@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 
-namespace LinqPerf
+namespace LinqPerf.Lib
 {
     public sealed class SampleRow : DynamicObject
     {

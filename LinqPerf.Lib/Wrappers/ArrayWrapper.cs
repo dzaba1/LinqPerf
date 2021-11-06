@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LinqPerf.Wrappers
+namespace LinqPerf.Lib.Wrappers
 {
     internal sealed class ArrayWrapper : IAddTest, IContainsTest, IBinarySearchTest
     {

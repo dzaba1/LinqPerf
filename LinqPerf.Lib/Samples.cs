@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LinqPerf
+namespace LinqPerf.Lib
 {
     public sealed class Samples
     {

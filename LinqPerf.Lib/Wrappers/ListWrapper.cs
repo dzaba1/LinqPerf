@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LinqPerf.Wrappers
+namespace LinqPerf.Lib.Wrappers
 {
     internal sealed class ListWrapper : IAddTest, IAddInTheMiddleTest, IContainsTest, IBinarySearchTest
     {

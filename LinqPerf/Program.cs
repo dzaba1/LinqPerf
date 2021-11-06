@@ -1,4 +1,6 @@
-﻿namespace LinqPerf
+﻿using LinqPerf.Lib;
+
+namespace LinqPerf
 {
     class Program
     {

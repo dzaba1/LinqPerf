@@ -1,6 +1,6 @@
-﻿using LinqPerf.Wrappers;
+﻿using LinqPerf.Lib.Wrappers;
 
-namespace LinqPerf
+namespace LinqPerf.Lib
 {
     public static class Add
     {

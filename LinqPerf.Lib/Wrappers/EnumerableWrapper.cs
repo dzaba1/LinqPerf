@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace LinqPerf.Wrappers
+namespace LinqPerf.Lib.Wrappers
 {
     internal sealed class EnumerableWrapper : IContainsTest
     {

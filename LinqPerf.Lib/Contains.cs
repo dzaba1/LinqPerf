@@ -1,7 +1,7 @@
-﻿using LinqPerf.Wrappers;
+﻿using LinqPerf.Lib.Wrappers;
 using System.Linq;
 
-namespace LinqPerf
+namespace LinqPerf.Lib
 {
     public sealed class Contains
     {

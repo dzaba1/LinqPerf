@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace LinqPerf
+namespace LinqPerf.Lib
 {
     public static class Utils
     {

@@ -1,4 +1,4 @@
-﻿namespace LinqPerf
+﻿namespace LinqPerf.Lib
 {
     public interface IAddInTheMiddleTest : ITest
     {

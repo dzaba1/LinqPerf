@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LinqPerf.Wrappers
+namespace LinqPerf.Lib.Wrappers
 {
     internal sealed class HashSetWrapper : IAddTest, IContainsTest
     {
