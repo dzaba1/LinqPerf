@@ -5,7 +5,7 @@ namespace LinqPerf.Lib
 {
     public sealed class Contains
     {
-        public static void ContainsAllValues()
+        public static Samples ContainsTest()
         {
             var initCount = 100000;
             var enumerable = Enumerable.Range(0, initCount);
@@ -19,7 +19,7 @@ namespace LinqPerf.Lib
                 new EnumerableWrapper(enumerable)
             };
 
-            Utils.TestTemplate(tests, initCount, initCount, (t, i) => t.Contains(i));
+            return Utils.TestTemplate(tests, initCount, initCount, (t, i) => t.Contains(i));
         }
     }
 }

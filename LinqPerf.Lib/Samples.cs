@@ -59,6 +59,9 @@ namespace LinqPerf.Lib
             }
         }
 
-
+        public IEnumerable<string> EnumerateColumnNames()
+        {
+            return columns.Keys;
+        }
     }
 }

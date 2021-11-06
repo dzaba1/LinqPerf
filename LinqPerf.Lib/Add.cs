@@ -4,7 +4,7 @@ namespace LinqPerf.Lib
 {
     public static class Add
     {
-        public static void AddTest()
+        public static Samples AddTest()
         {
             var tests = new IAddTest[]
             {
@@ -14,10 +14,10 @@ namespace LinqPerf.Lib
                 new HashSetWrapper()
             };
 
-            Utils.TestTemplate(tests, 0, 100000, true, (t, i) => t.AddOne(i));
+            return Utils.TestTemplate(tests, 0, 100000, true, (t, i) => t.AddOne(i));
         }
 
-        public static void AddFirstTest()
+        public static Samples AddFirstTest()
         {
             var tests = new IAddInTheMiddleTest[]
             {
@@ -25,10 +25,10 @@ namespace LinqPerf.Lib
                 new LinkedListWrapper()
             };
 
-            Utils.TestTemplate(tests, 0, 100000, true, (t, i) => t.AddFirst(i));
+            return Utils.TestTemplate(tests, 0, 100000, true, (t, i) => t.AddFirst(i));
         }
 
-        public static void AddInTheMiddleTest()
+        public static Samples AddInTheMiddleTest()
         {
             var tests = new IAddInTheMiddleTest[]
             {
@@ -36,7 +36,7 @@ namespace LinqPerf.Lib
                 new LinkedListWrapper()
             };
 
-            Utils.TestTemplate(tests, 0, 60000, true, (t, i) => t.AddAtPosition(i, i / 2));
+            return Utils.TestTemplate(tests, 0, 60000, true, (t, i) => t.AddAtPosition(i, i / 2));
         }
     }
 }
