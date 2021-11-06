@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace LinqPerf
 {
@@ -25,6 +26,26 @@ namespace LinqPerf
                     test.Warmup();
                 }
             }
+        }
+
+        public static Samples TestTemplate<T>(IEnumerable<T> tests, int iterations, Action<T, int> testAction)
+            where T : ITest
+        {
+            var testsCast = tests.Cast<ITest>();
+            testsCast.Warmup();
+
+            var samples = new Samples(iterations, testsCast);
+
+            for (int i = 0; i < iterations; i++)
+            {
+                foreach (var test in tests)
+                {
+                    var value = Utils.Measure(() => testAction(test, i), $"{test.Name} ({i})");
+                    samples.AddValue(i, test, value);
+                }
+            }
+
+            return samples;
         }
     }
 }

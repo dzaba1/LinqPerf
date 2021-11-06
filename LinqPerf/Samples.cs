@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LinqPerf
 {
-    internal sealed class Samples
+    public sealed class Samples
     {
         private readonly Dictionary<string, int> columns = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         private readonly List<TimeSpan[]> values;
