@@ -1,5 +1,6 @@
 ﻿using LinqPerf.Lib;
 using OxyPlot;
+using OxyPlot.Legends;
 using OxyPlot.Series;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,11 @@ namespace LinqPerf.Chart
         public void SetSamples(Samples samples)
         {
             var model = new PlotModel();
+            model.Legends.Add(new Legend
+            {
+                LegendPlacement = LegendPlacement.Outside
+            });
+
             var series = new Dictionary<string, LineSeries>();
 
             foreach (var row in samples.EnumerateRows())
@@ -25,6 +31,7 @@ namespace LinqPerf.Chart
                         {
                             Title = propName
                         };
+                        series.Add(propName, serie);
                     }
 
                     var value = row[propName];
