@@ -11,7 +11,8 @@ namespace LinqPerf.Lib
                 new ListWrapper(),
                 new ArrayWrapper(),
                 new LinkedListWrapper(),
-                new HashSetWrapper()
+                new HashSetWrapper(),
+                new DictionaryWrapper()
             };
 
             return Utils.TestTemplate(tests, 0, 100000, true, (t, i) => t.AddOne(i));

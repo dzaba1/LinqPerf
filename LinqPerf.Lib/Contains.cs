@@ -16,7 +16,8 @@ namespace LinqPerf.Lib
                 new ArrayWrapper(enumerable),
                 new LinkedListWrapper(enumerable),
                 new HashSetWrapper(enumerable),
-                new EnumerableWrapper(enumerable)
+                new EnumerableWrapper(enumerable),
+                new DictionaryWrapper(enumerable)
             };
 
             tests.Warmup();
