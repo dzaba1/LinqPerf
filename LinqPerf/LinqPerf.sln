@@ -5,9 +5,14 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqPerf", "LinqPerf.csproj", "{AF496EA5-5D7D-4223-9294-F9E869A91862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqPerf.Chart", "..\LinqPerf.Chart\LinqPerf.Chart.csproj", "{F527B631-F5B9-4FD3-95BE-6577FAF75BC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqPerf.Chart", "..\LinqPerf.Chart\LinqPerf.Chart.csproj", "{F527B631-F5B9-4FD3-95BE-6577FAF75BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqPerf.Lib", "..\LinqPerf.Lib\LinqPerf.Lib.csproj", "{18AA2F58-8F7C-4C95-B911-205751DA1FFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqPerf.Lib", "..\LinqPerf.Lib\LinqPerf.Lib.csproj", "{18AA2F58-8F7C-4C95-B911-205751DA1FFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0085661D-692C-43E3-9D20-67F5B342D85B}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
