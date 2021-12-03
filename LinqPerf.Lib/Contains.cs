@@ -15,8 +15,8 @@ namespace LinqPerf.Lib
                 new ListWrapper(enumerable),
                 new ArrayWrapper(enumerable),
                 new LinkedListWrapper(enumerable),
-                new HashSetWrapper(enumerable),
                 new EnumerableWrapper(enumerable),
+                new HashSetWrapper(enumerable),
                 new DictionaryWrapper(enumerable)
             };
 

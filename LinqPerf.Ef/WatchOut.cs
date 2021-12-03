@@ -48,7 +48,7 @@ namespace LinqPerf.Ef
             return model.Where(m => m.Id > 90);
         }
 
-        private static IQueryable<Model> CorrectOperation(IQueryable<Model> model)
+        private static IEnumerable<Model> CorrectOperation(IQueryable<Model> model)
         {
             return model.Where(m => m.Id > 90);
         }
