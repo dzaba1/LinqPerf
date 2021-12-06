@@ -13,7 +13,7 @@ namespace LinqPerf.Lib
             action();
             perfWatch.Stop();
             var elapsed = perfWatch.Elapsed;
-            Console.WriteLine($"The {name} took {elapsed}");
+            ConsoleEx.WriteLine($"The {name} took {elapsed}", ConsoleColor.Yellow);
             return elapsed;
         }
 
@@ -52,48 +52,6 @@ namespace LinqPerf.Lib
             }
 
             return samples;
-        }
-
-        public static IEnumerable<int> StreamOfRandoms(int count, bool debugPrint = false)
-        {
-            if (debugPrint)
-            {
-                Console.WriteLine("Before creating random");
-            }
-
-            var random = new Random();
-
-            if (debugPrint)
-            {
-                Console.WriteLine("Before making the loop");
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                if (debugPrint)
-                {
-                    Console.WriteLine("Before Next");
-                }
-
-                var value = random.Next();
-
-                if (debugPrint)
-                {
-                    Console.WriteLine($"Before yield {value}");
-                }
-
-                yield return value;
-
-                if (debugPrint)
-                {
-                    Console.WriteLine($"After yield {value}");
-                }
-            }
-
-            if (debugPrint)
-            {
-                Console.WriteLine("After loop");
-            }
         }
     }
 }

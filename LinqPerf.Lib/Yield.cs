@@ -7,27 +7,27 @@ namespace LinqPerf.Lib
     {
         public static void YieldTest()
         {
-            Console.WriteLine("Before invoking the stream");
-            var stream = Utils.StreamOfRandoms(100, true);
-            Console.WriteLine("After making the stream");
+            ConsoleEx.WriteLine("Before invoking the stream", ConsoleColor.White);
+            var stream = EnumerableStream.OfRandoms(100, true);
+            ConsoleEx.WriteLine("After making the stream", ConsoleColor.White);
 
             var processed = stream
                 .Where(i =>
                 {
-                    Console.WriteLine($"Processing Where of {i}");
+                    ConsoleEx.WriteLine($"Processing Where of {i}", ConsoleColor.White);
                     return i > 0;
                 })
                 .Select(i =>
                 {
-                    Console.WriteLine($"Processing Select of {i}");
+                    ConsoleEx.WriteLine($"Processing Select of {i}", ConsoleColor.White);
                     return i + 10;
                 });
 
-            Console.WriteLine("After processing");
+            ConsoleEx.WriteLine("After processing", ConsoleColor.White);
 
             foreach (var item in processed)
             {
-                Console.WriteLine($"Finally got {item}");
+                ConsoleEx.WriteLine($"Finally got {item}", ConsoleColor.White);
             }
         }
     }
